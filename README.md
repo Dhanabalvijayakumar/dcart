@@ -32,6 +32,7 @@ Features:
 - Wishlist
 - Cart Management
 - Order Management
+- Products recommendation according to user
 
 ---
 
