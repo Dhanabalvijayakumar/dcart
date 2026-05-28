@@ -32,7 +32,7 @@ const Products = () => {
         if (token) {
             fetchWishlist();
         }
-    }, [page]);
+    }, [page, token]);
 
     // useEffect(() => {
     //     fetchProducts();

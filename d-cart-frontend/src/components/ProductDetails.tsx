@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [productId]);
 
     const fetchProduct = async () => {
 
