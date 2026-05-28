@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS d_cart_db;
-CREATE DATABASE d_cart_db;
-use d_cart_db;
 
 CREATE TABLE users(
     user_id BIGINT AUTO_INCREMENT,
