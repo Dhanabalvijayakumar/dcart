@@ -226,6 +226,3 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-function fetchCartItems() {
-    throw new Error("Function not implemented.");
-}

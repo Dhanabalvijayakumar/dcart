@@ -27,17 +27,6 @@ const Products = () => {
     const [backendError, setBackendError] = useState(false);
 
 
-    useEffect(() => {
-        fetchProducts();
-        if (token) {
-            fetchWishlist();
-        }
-    }, [page, token]);
-
-    // useEffect(() => {
-    //     fetchProducts();
-    // }, [page]);
-
     const fetchProducts = async () => {
         try {
             setLoading(true);
@@ -71,6 +60,17 @@ const Products = () => {
             setWishlistItems([]);
         }
     }
+
+    useEffect(() => {
+        fetchProducts();
+        if (token) {
+            fetchWishlist();
+        }
+    }, [page, token]);
+
+    // useEffect(() => {
+    //     fetchProducts();
+    // }, [page]);
 
     const handleAddToCart = async (productId: number) => {
         try {
