@@ -66,11 +66,8 @@ const Products = () => {
         if (token) {
             fetchWishlist();
         }
-    }, [page, token]);
+    }, []);
 
-    // useEffect(() => {
-    //     fetchProducts();
-    // }, [page]);
 
     const handleAddToCart = async (productId: number) => {
         try {

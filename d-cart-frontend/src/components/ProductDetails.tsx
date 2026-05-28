@@ -32,7 +32,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         fetchProduct();
-    }, [productId]);
+    }, []);
 
     const handleAddToCart = async (productId: number) => {
         try {
