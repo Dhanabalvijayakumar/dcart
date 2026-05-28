@@ -27,24 +27,7 @@ const Products = () => {
     const [backendError, setBackendError] = useState(false);
 
 
-    const fetchProducts = async () => {
-        try {
-            setLoading(true);
-            setBackendError(false);
 
-            const response = await loadProducts(page);
-            // console.log(response);
-            setProducts(response.content);
-            setTotalPages(response.totalPages);
-        }
-        catch (err) {
-            console.log(err);
-            setBackendError(true);
-        }
-        finally {
-            setLoading(false);
-        }
-    }
 
     const fetchWishlist = async () => {
         try {
@@ -62,11 +45,34 @@ const Products = () => {
     }
 
     useEffect(() => {
+
+        const fetchProducts = async () => {
+            try {
+                setLoading(true);
+                setBackendError(false);
+
+                const response = await loadProducts(page);
+                // console.log(response);
+                setProducts(response.content);
+                setTotalPages(response.totalPages);
+
+                if (token) {
+                    fetchWishlist();
+                }
+
+            }
+            catch (err) {
+                console.log(err);
+                setBackendError(true);
+            }
+            finally {
+                setLoading(false);
+            }
+        };
+
         fetchProducts();
-        if (token) {
-            fetchWishlist();
-        }
-    }, []);
+
+    }, [page, token]);
 
 
     const handleAddToCart = async (productId: number) => {

@@ -18,21 +18,19 @@ const ProductDetails = () => {
     const [wishlistItems, setWishlistItems] = useState<number[]>([]);
 
 
-    const fetchProduct = async () => {
-
-        try {
-
-            const response = await getProductById(productId);
-            setProduct(response);
-
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+
+                const response = await getProductById(productId);
+                setProduct(response);
+
+            } catch (error) {
+                console.log(error);
+            }
+        };
         fetchProduct();
-    }, []);
+    }, [productId]);
 
     const handleAddToCart = async (productId: number) => {
         try {
