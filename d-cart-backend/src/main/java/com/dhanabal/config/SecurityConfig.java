@@ -31,16 +31,14 @@ public class SecurityConfig {
 
 //		http.csrf(csrf -> csrf.disable())
 
-		http
-				.cors(cors -> cors.configurationSource(request -> {
-				CorsConfiguration config = new CorsConfiguration();
-				config.setAllowedOrigins(List.of("http://localhost:3000"));
-				config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-				config.setAllowedHeaders(List.of("*"));
-				config.setAllowCredentials(true);
-				return config;
-				}))
-				.csrf(csrf -> csrf.disable())
+		http.cors(cors -> cors.configurationSource(request -> {
+			CorsConfiguration config = new CorsConfiguration();
+			config.setAllowedOrigins(List.of("http://localhost:3000", "https://d-cart-frontend.vercel.app/"));
+			config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+			config.setAllowedHeaders(List.of("*"));
+			config.setAllowCredentials(true);
+			return config;
+		})).csrf(csrf -> csrf.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(
 						auth -> auth.requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated())
