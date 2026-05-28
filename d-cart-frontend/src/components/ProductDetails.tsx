@@ -17,9 +17,6 @@ const ProductDetails = () => {
 
     const [wishlistItems, setWishlistItems] = useState<number[]>([]);
 
-    useEffect(() => {
-        fetchProduct();
-    }, [productId]);
 
     const fetchProduct = async () => {
 
@@ -32,6 +29,10 @@ const ProductDetails = () => {
             console.log(error);
         }
     };
+
+    useEffect(() => {
+        fetchProduct();
+    }, [productId]);
 
     const handleAddToCart = async (productId: number) => {
         try {
