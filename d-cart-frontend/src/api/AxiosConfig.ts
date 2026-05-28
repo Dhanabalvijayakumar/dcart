@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:8081/api"
+    // baseURL: "http://localhost:8081/api"
+    baseURL: "https://dcart-backend.onrender.com/"
 });
 
 API.interceptors.response.use(
