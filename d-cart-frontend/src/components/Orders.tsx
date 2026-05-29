@@ -19,6 +19,7 @@ const Orders = () => {
         }
         catch (err) {
             console.log(err);
+            setOrderItems([]);
         }
     }
 
