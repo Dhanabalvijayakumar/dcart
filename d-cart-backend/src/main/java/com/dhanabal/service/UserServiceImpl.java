@@ -58,8 +58,12 @@ public class UserServiceImpl implements UserService {
 
 		Users savedUser = usersRepo.save(newUser);
 
-		emailService.sendRegistrationMail(savedUser.getEmail(), savedUser.getName(), savedUser.getMobile(),
-				dto.getPassword());
+		try {
+			emailService.sendRegistrationMail(savedUser.getEmail(), savedUser.getName(), savedUser.getMobile(),
+					dto.getPassword());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		return newUser.getUserId();
 
