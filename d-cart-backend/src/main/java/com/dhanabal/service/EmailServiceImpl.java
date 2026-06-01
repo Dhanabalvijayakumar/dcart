@@ -26,7 +26,7 @@ public class EmailServiceImpl implements EmailService {
 
 		headers.set("api-key", brevoApiKey);
 
-		Map<String, Object> requestBody = Map.of("sender", Map.of("name", "DCart", "email", "vdhanabal2003@gmail.com"),
+		Map<String, Object> requestBody = Map.of("sender", Map.of("name", "DCart", "email", "dproductions8228@gmail.com"),
 				"to", List.of(Map.of("email", toEmail)), "subject", "Welcome to DCart", "htmlContent",
 				"<h2>Welcome to DCart</h2>" + "<p>Your account has been created successfully.</p>" + "<p><b>Email:</b> "
 						+ toEmail + "</p>" + "<p><b>Mobile:</b> " + mobile + "</p>"
